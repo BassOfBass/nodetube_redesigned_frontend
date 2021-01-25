@@ -1,0 +1,29 @@
+{
+  "name": "nodetube-redesigned-frontend",
+  "version": "1.0.0",
+  "description": "A frontend development environment for Nodetube",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/l1ghtsword/nodetube-redesigned-frontend.git"
+  },
+  "keywords": [
+    "nodetube",
+    "frontend",
+    "sass",
+    "pug"
+  ],
+  "author": "L1ghtsword",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/l1ghtsword/nodetube-redesigned-frontend/issues"
+  },
+  "homepage": "https://github.com/l1ghtsword/nodetube-redesigned-frontend#readme",
+  "dependencies": {
+    "pug": "^3.0.0",
+    "sass": "^1.32.5"
+  }
+}
