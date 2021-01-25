@@ -3,7 +3,8 @@
 /dist
 /temp
 
-_example_resources
-.atom-live-server.json
-.git
-node_modules
+# Other files
+/_example_resources
+/.atom-live-server.json
+/.git
+/node_modules
