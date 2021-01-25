@@ -9,7 +9,7 @@
     "build": "npm run build:styles && npm run build:templates",
     "dev:styles": "sass --watch src/css:temp/styles",
     "dev:templates": "pug src/html --watch --out temp/html",
-    "dev": "concurrently 'npm:dev:styles' 'npm:dev:templates'"
+    "dev": "concurrently --kill-others 'npm:dev:*'"
   },
   "repository": {
     "type": "git",
