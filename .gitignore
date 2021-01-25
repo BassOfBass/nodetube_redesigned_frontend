@@ -1,7 +1,13 @@
+# Environment variables
+.env
+
 # build files
 /build
 /dist
 /temp
+
+# VSCode workspace file
+*.code-workspace
 
 _example_resources
 .atom-live-server.json

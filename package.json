@@ -4,11 +4,14 @@
   "description": "A frontend development environment for Nodetube",
   "main": "app.js",
   "scripts": {
-    "build:styles": "sass --style=compressed --update src/css:build/styles",
-    "build:templates": "pug src/html --out build/html",
-    "build": "npm run build:styles && npm run build:templates",
-    "dev:styles": "sass --watch src/css:temp/styles",
-    "dev:templates": "pug src/html --watch --out temp/html",
+    "build:templates": "pug src --out build",
+    "build:styles": "sass --style=compressed --update src:build",
+    "build:scripts": "babel src --out-dir build",
+    "build": "npm run build:templates && npm run build:styles && npm run build:scripts",
+    "dev:server": "http-server temp -a=localhost",
+    "dev:templates": "pug src --watch --out temp",
+    "dev:styles": "sass --watch src:temp",
+    "dev:scripts": "babel src --watch --out-dir temp",
     "dev": "concurrently --kill-others 'npm:dev:*'"
   },
   "repository": {
@@ -28,10 +31,15 @@
   },
   "homepage": "https://github.com/l1ghtsword/nodetube-redesigned-frontend#readme",
   "dependencies": {
+    "core-js": "^3.8.3",
     "pug": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "concurrently": "^5.3.0",
+    "http-server": "^0.12.3",
     "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.32.5"
   }
