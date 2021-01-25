@@ -1,3 +1,8 @@
+# build files
+/build
+/dist
+/temp
+
 _example_resources
 .atom-live-server.json
 .git

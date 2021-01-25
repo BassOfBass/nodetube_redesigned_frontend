@@ -4,7 +4,12 @@
   "description": "A frontend development environment for Nodetube",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:styles": "sass --style=compressed --update src/css:build/styles",
+    "build:templates": "pug src/html --out build/html",
+    "build": "npm run build:styles && npm run build:templates",
+    "dev:styles": "sass --watch src/css:temp/styles",
+    "dev:templates": "pug src/html --watch --out temp/html",
+    "dev": "concurrently --kill-others 'npm:dev:*'"
   },
   "repository": {
     "type": "git",
@@ -23,7 +28,11 @@
   },
   "homepage": "https://github.com/l1ghtsword/nodetube-redesigned-frontend#readme",
   "dependencies": {
-    "pug": "^3.0.0",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.32.5"
   }
 }
