@@ -1,6 +1,6 @@
 {
   "name": "nodetube-redesigned-frontend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A frontend development environment for Nodetube",
   "main": "app.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build:styles": "sass --style=compressed --update src:build",
     "build:scripts": "babel src --out-dir build",
     "build": "npm run build:templates && npm run build:styles && npm run build:scripts",
-    "dev:server": "http-server temp -a=localhost",
+    "dev:server": "live-server --port=8080 --host=localhost --open=temp --watch=temp --entry-file=index.html",
     "dev:templates": "pug src --watch --out temp",
     "dev:styles": "sass --watch src:temp",
     "dev:scripts": "babel src --watch --out-dir temp",
@@ -39,7 +39,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "concurrently": "^5.3.0",
-    "http-server": "^0.12.3",
+    "live-server": "^1.2.1",
     "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.32.5"
   }
