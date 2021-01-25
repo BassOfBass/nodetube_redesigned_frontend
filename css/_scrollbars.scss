@@ -1,0 +1,12 @@
+@import "_variables.scss";
+
+::-webkit-scrollbar{
+  width:.5em;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1em darken($primary-sidebar-color,40%);
+}
+::-webkit-scrollbar-thumb {
+  background-color: lighten($primary-sidebar-color,20%);
+  border-radius: 1em;
+}

@@ -1,0 +1,88 @@
+@import "_variables.scss";
+
+rect, svg {
+  fill: $primary-button-fill-color;
+}
+
+button.nav-menu-button {
+  display:flex;
+  flex: 0;
+  cursor:pointer;
+  background-color: transparent;
+  border: none;
+  svg.nav-menu-icon-container {
+    background-color: transparent;
+    height: 2.5em;
+    padding: 0em 1.5em;
+  }
+}
+button.nav-menu-button:focus {
+  outline: none;
+  border: none;
+}
+
+button.search-uploads-button {
+  display:flex;
+  flex: 0 0 15px;
+  background-color:$header-input-field-color;
+  border: 1px solid lighten($header-input-field-color,20%);
+  border-radius: 0px 3px 3px 0px;
+  svg.search-icon-container {
+    background-color: transparent;
+    width: 15px;
+    padding: 5px 20px;
+    .search-icon-render {
+      fill: lighten($header-input-field-color,60%);
+      stroke: lighten($header-input-field-color,60%);
+      stroke-width: 20px;
+    }
+  }
+}
+button.search-uploads-button:focus {
+  outline: none;
+  box-shadow: 0 0 10px white;
+  border: 1px solid lighten($header-input-field-color,60%);
+  border: none;
+}
+button.search-uploads-button:hover {
+  cursor: pointer;
+  transition: all 400ms ease;
+  background-color:darken($header-input-field-color, 10%);
+  svg.search-icon-container {
+    .search-icon-render {
+      fill: lighten($header-input-field-color,100%);
+      stroke: lighten($header-input-field-color,100%);
+    }
+  }
+}
+
+a.random-upload-button {
+  svg.random-upload-icon-container {
+    display: flex;
+    right: auto;
+    background-color: transparent;
+    width:40px;
+    height: 30px;
+    padding-right: 20px;
+    path {
+      fill: set-text-color($primary-header-color);
+    }
+  }
+}
+
+a.upload-media-button {
+  background-color:$header-input-field-color;
+  border: 1px solid lighten($header-input-field-color,20%);
+  border-radius: 3px;
+  padding: 10px 30px;
+}
+a.upload-media-button:focus {
+  outline: none;
+  box-shadow: 0 0 10px $primary-button-fill-color;
+  border: 1px solid lighten($header-input-field-color,60%);
+}
+a.upload-media-button:hover {
+  cursor: pointer;
+  transition: all 400ms ease;
+  background-color:darken($header-input-field-color, 10%);
+}

@@ -1,0 +1,36 @@
+@import "_variables.scss";
+
+body {
+  margin:0em;
+  padding:0em;
+  border: 0em;
+  font-family:arial;
+  color: set-text-color($primary-body-color);
+  background-color: black;
+  overflow: hidden;
+}
+
+p, span, h1, h2, h3, h4, h5, h6, h7 {
+  font: arial;
+  font-size: inherit;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0em;
+  margin-inline-end: 0em;
+  background-color: inherit;
+  color: set-text-color($primary-body-color);
+}
+
+h7 {
+  font: inherit;
+  font-size: 1em;
+  color: set-text-color($header-input-field-color);
+}
+
+a, a:visited {
+  color: inherit;
+  font: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  text-decoration: inherit;
+}

@@ -1,0 +1,24 @@
+@import "_variables.scss";
+
+input {
+  width: 0px;
+  display: flex;
+  flex: 1;
+  color: set-text-color($header-input-field-color);
+  background-color: $header-input-field-color;
+  border: 1px solid lighten($header-input-field-color,20%);
+  border-radius: 3px 0px 0px 3px;
+  .search-query-input{}
+}
+input:hover {
+  transition: all 400ms ease;
+  background-color:darken($header-input-field-color, 10%);
+  .search-query-input{}
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px lighten($header-input-field-color,80%);
+  background-color:darken($header-input-field-color, 5%);
+  border: 1px solid lighten($header-input-field-color,60%);
+  .search-query-input{}
+}

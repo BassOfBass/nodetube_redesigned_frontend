@@ -1,302 +1,28 @@
-//Variables to export
-$primary-header-color:#00330c;
-$primary-sidebar-color:#1a1a1a;
-$hamburger-menu-icon-colour:white;
-$header-input-field-color:#333;
+//Main SCSS file
 
-$header-icon-start-position:20px;
-$header-title-start-position:60px;
-// sidebar start position is an implied 0px;
-$sidebar-width:220px;
+//Variables used in stylesheet
+@import "_variables.scss";
+//Functions to provide utility - perform operations
+@import "_util.scss";
+//Reusable style such as buttons or scrollbars
+@import "_defaults.scss";
+@import "_scrollbars.scss";
+@import "_buttons.scss";
+@import "_inputbox.scss";
 
-$sidebar-transition-speed:150ms;
+//Main site content stylesheets
+@import "_header.scss";
+@import "_sidebars.scss";
 
-//Functions to export
-@function set-text-color($color) {
-  @if(lightness($color) > 70) {
-    @return black;
-  } @else {
-    @return #eee;
-  }
-}
-
-//-------------------------------------------------------------------------
-//Global tags
-body {
-  margin:0px;
-  padding:0px;
-  border: 0px;
-  box-sizing:border-box;
-  font-family:arial;
-  background-color: black;
-}
-
-p {
-  margin-block-start: 0px;
-  margin-block-end: 0px;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
-
-a, a:visited {
-  color: inherit;
-  font: inherit;
-  font-size: inherit;
-  font-style: inherit;
-  text-decoration: inherit;
-}
-
-.list::-webkit-scrollbar{
-  width:7px;
-}
-.list::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 10px darken($primary-sidebar-color,40%);
-}
-.list::-webkit-scrollbar-thumb {
-  background-color: $primary-sidebar-color;
-  //outline: 1px solid $primary-sidebar-color;
-  border-radius: 8px;
-}
-
-button.nav-menu-button {
-  display:flex;
-  flex: 0;
-  cursor:pointer;
-  background-color: transparent;
-  border: none;
-  svg.nav-menu-icon-container {
-    background-color: transparent;
-    height: 30px;
-    padding: 0px 20px;
-    rect {
-      fill: set-text-color($primary-header-color);
-    }
-  }
-}
-button.nav-menu-button:focus {
-  outline: none;
-  border: none;
-}
-
-//-------------------------------------------------------------------------
-//Header Area
-header#nt-header {
-
-  display:flex;
-  flex:1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-  overflow:hidden;
-  height:60px;
-  background-color: $primary-header-color;
-
-  #nt-sidebar-placeholder {
-    display:flex;
-    flex: 0 0 0px;
-    transition: $sidebar-transition-speed ease;
-  }
-  #nt-sidebar-placeholder.active {
-    display:flex;
-    flex: 0 0 $sidebar-width;
-    padding-right: 20px;
-  }
-
-  #nt-nav-menu-button {
-    display: flex;
-    button.nav-menu-button {
-      //set globally
-    }
-  }
-  #nt-nav-menu-button.active {
-    display: none;
-  }
-
-  #nt-title {
-    display:flex;
-    flex-direction: row;
-    flex: 0 0;
-    color: set-text-color($primary-header-color);
-    text-transform:uppercase;
-    font-size:25px;
-    font-weight:900;
-    padding-right: 20px;
-  }
-
-  #nt-media-search {
-    display:flex;
-    flex:0 1 500px;
-    justify-content: left;
-    flex-direction: row;
-    padding-right: 20px;
-    input.search-query-input {
-      width: 60px;
-      min-width: 60px;
-      display: flex;
-      flex: 1;
-      flex-direction: row;
-      color: set-text-color($header-input-field-color);
-      background-color: $header-input-field-color;
-      border: 1px solid lighten($header-input-field-color,20%);
-      border-radius: 3px 0px 0px 3px;
-    }
-    input.search-query-input:hover {
-      transition: all 400ms ease;
-      background-color:darken($header-input-field-color, 10%);
-    }
-    input.search-query-input:focus {
-      outline: none;
-      box-shadow: 0 0 10px white;
-      background-color:darken($header-input-field-color, 5%);
-      border: 1px solid lighten($header-input-field-color,60%);
-    }
-    button.search-uploads-button {
-      display:flex;
-      flex: 0 0 15px;
-      background-color:$header-input-field-color;
-      border: 1px solid lighten($header-input-field-color,20%);
-      border-radius: 0px 3px 3px 0px;
-      svg.search-icon-container {
-        background-color: transparent;
-        width: 15px;
-        padding: 5px 20px;
-        .search-icon-render {
-          fill: lighten($header-input-field-color,60%);
-          stroke: lighten($header-input-field-color,60%);
-          stroke-width: 20px;
-        }
-      }
-    }
-    button.search-uploads-button:focus {
-      outline: none;
-      box-shadow: 0 0 10px white;
-      border: 1px solid lighten($header-input-field-color,60%);
-      border: none;
-    }
-    button.search-uploads-button:hover {
-      cursor: pointer;
-      transition: all 400ms ease;
-      background-color:darken($header-input-field-color, 10%);
-      svg.search-icon-container {
-        .search-icon-render {
-          fill: lighten($header-input-field-color,100%);
-          stroke: lighten($header-input-field-color,100%);
-        }
-      }
-    }
-  }
-
-  #nt-media-search-spacer {
-    display:flex;
-    flex: 1 1;
-    align-self: stretch;
-  }
-
-  #nt-random-video {
-
-    a.random-upload-button {
-      display:flex;
-      flex: 0 0;
-      svg.random-upload-icon-container {
-        display: flex;
-        right: auto;
-        background-color: transparent;
-        width:40px;
-        height: 30px;
-        padding-right: 20px;
-        path {
-          fill: set-text-color($primary-header-color);
-        }
-      }
-    }
-  }
-
-  #nt-upload-button {
-    display:flex;
-    flex-direction: row;
-    flex: 0 0 30px;
-    padding-right: 20px;
-    a.upload-media-button {
-      background-color:$header-input-field-color;
-      border: 1px solid lighten($header-input-field-color,20%);
-      border-radius: 3px;
-      padding: 10px 30px;
-      h7 {
-        font: arial;
-        font-size: 14px;
-        color: set-text-color($header-input-field-color);
-      }
-    }
-  }
-    a.upload-media-button:focus {
-      outline: none;
-      box-shadow: 0 0 10px white;
-      border: 1px solid lighten($header-input-field-color,60%);
-    }
-    a.upload-media-button:hover {
-      cursor: pointer;
-      transition: all 400ms ease;
-      background-color:darken($header-input-field-color, 10%);
-    }
-}
-
-
-//-------------------------------------------------------------------------
-//Sidebar Area
-nav#nt-sidebar {
-  position:absolute;
-  display: flex;
-  flex:1;
-  flex-direction: column;
-  top:0px;
-  left:-$sidebar-width;
-  width:$sidebar-width;
-  height: 100%;
-  #nt-sidebar-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: flex-start;
-    justify-content: flex-start;
-    background-color: $primary-sidebar-color;
-    transition:all $sidebar-transition-speed ease;
-    #nt-sidebar-button-container {
-      display: flex;
-      flex-direction: column;
-      flex:0 0 60px;
-      justify-content: center;
-      button.nav-menu-button {
-        overflow:hidden;
-        svg {}
-      }
-    }
-    .list {
-      display:flex;
-      flex-direction:column;
-      flex: 1;
-      overflow-y:auto;
-      padding-left: 18px;
-      .item {
-        flex-direction:column;
-        color:set-text-color($primary-sidebar-color);
-        padding:15px 10px;
-        text-transform:uppercase;
-        font-size:15px;
-        cursor:pointer;
-      }
-    }
-    #nt-sidebar-spacer{
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      background-color: $primary-sidebar-color;
-    }
-  }
-}
-nav#nt-sidebar.active {
-  left:0px;
-}
-
+// TODO: - Seperate reusable PUG documents into @mixin and general insert content
+// TODO: - Convert all remaining px and width% units into em, rem and vw
+// TODO: - Clean-up and flatten SCSS files, remove redundant rules
+// TODO: - Seperate spesific module CSS from layout and padding SCSS
+// TODO: - Clean up layout for <nav> sidebar (still looks kind wonky)
+// TODO: - Implement right pane sidebar for user menu (No <nav> use <aside>)
+// TODO: - Implement landing page Catigories row up-top (May require refactoring later)
+// TODO: - Implement content wrapper for main content body
+// TODO: - place footer in nav sidebar or user sidebar (right sidebar) - not sure yet
 
 
 
@@ -309,12 +35,6 @@ nav#nt-sidebar.active {
 //Content Area
 
 
-.internals {
-  p {
-    background-color: red;
-  }
-  background-color: blue;
-}
 
 //-------------------------------------------------------------------------
 //Mobile view
@@ -322,63 +42,4 @@ nav#nt-sidebar.active {
 //@media not|only mediatype and (mediafeature and|or|not mediafeature) {
 //
 
-@media (max-width: 700px)  {
-  header#nt-header {
-    height: 100px;
-
-    #nt-title.active {
-      display: none;
-    }
-
-    #nt-media-search-spacer {
-      display: none;
-    }
-
-    #nt-media-search {
-      justify-content: flex-end;
-      padding-right: 5px;
-      input.search-query-input {
-        display: none;
-      }
-      button.search-uploads-button {
-        background-color: transparent;
-        border: none;
-        svg.search-icon-container {
-          padding: 0px;
-          height: 22px;
-          width: auto;
-        }
-      }
-      button.search-uploads-button:hover {
-        background-color: transparent;
-      }
-      button.search-uploads-button:focus {
-        box-shadow: none;
-      }
-    }
-    #nt-media-search.active {
-      flex: 1;
-      align-items: center;
-      padding-right: 20px;
-      input.search-query-input {
-        display: flex;
-        height: 30px;
-      }
-    }
-
-    #nt-random-video.active {
-      display: none;
-    }
-
-    #nt-upload-button {
-      display: none;
-    }
-  }
-  nav#nt-sidebar {
-    #nt-sidebar-container {
-      #nt-sidebar-button-container {
-        flex:0 0 100px;
-      }
-    }
-  }
-}
+@import "_mobile.scss"
