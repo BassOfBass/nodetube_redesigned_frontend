@@ -9,7 +9,8 @@
 # VSCode workspace file
 *.code-workspace
 
-_example_resources
+# Other files
+/_example_resources
 .atom-live-server.json
 .git
-node_modules
+/node_modules
